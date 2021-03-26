@@ -1,2 +1,17 @@
 <!--index.wxml-->
-<view>首页</view>
+<SearchInput/>
+<swiper
+    indicator-dots="{{true}}"
+    autoplay="{{true}}"
+    interval="2000"
+    class="ImgSwiper"
+>
+    <swiper-item
+        wx:for="{{swiperImgs}}" 
+        wx:for-index="n" 
+        wx:for-item="i"
+        wx:key="goods_id"
+    >
+        <image src="{{i.image_src}}" mode="aspectFit"/>
+    </swiper-item>
+</swiper>
