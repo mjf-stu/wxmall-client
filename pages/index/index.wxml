@@ -1,9 +1,12 @@
-<!--index.wxml-->
+<!--index.wxml autoplay="{{true}}"-->
 <SearchInput/>
-<swiper
+
+<!-- 图片轮播开始 -->
+<view>
+    <swiper
     indicator-dots="{{true}}"
-    autoplay="{{true}}"
     interval="2000"
+    circular="{{true}}"
     class="ImgSwiper"
 >
     <swiper-item
@@ -15,3 +18,27 @@
         <image src="{{i.image_src}}" mode="aspectFit"/>
     </swiper-item>
 </swiper>
+</view>
+<!-- 图片轮播结束 -->
+
+<!-- 分类导航开始 -->
+<view class="NavList">
+    <navigator wx:for="{{navImgs}}" wx:key="name">
+        <image  src="{{item.image_src}}" mode="widthFix"/>
+    </navigator>
+</view>
+<!-- 分类导航结束 -->
+
+<!-- 楼层数据开始 -->
+<view wx:for="{{floor_title}}" wx:for-item="n1" wx:for-index="i1" wx:key="name">
+    <view><image src="{{n1.image_src}}" class="titles"/></view>
+    <view class="floor_product">
+        <view>
+            <navigator wx:for="{{product_list[i1]}}" wx:for-item="n2" wx:for-index="i2"
+            url="{{n2.navigator_url}}" wx:key="*this">
+                <image  src="{{n2.image_src}}" class="{{i2 === 0 ? 'leftImg' : 'rightImg'}}"/>
+            </navigator>
+        </view>
+    </view>
+</view>
+<!-- 楼层数据结束 -->
