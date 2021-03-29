@@ -1,1 +1,65 @@
 /* pages/category/category.wxss */
+page{
+    height: 100vh;
+}
+.cateContainer{
+    height: calc(100vh - 100rpx);
+    display: flex;
+}
+.leftCate{
+    /* 因为父元素设置了flex所以儿子默认height为父元素的值 */
+    /* height: 100%; */
+    flex: 1;
+}
+.rightCate{
+    flex: 3;
+}
+.leftCateScroll,.rightCateScroll{
+    height: 100%;
+}
+.leftCateItem{
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-top: 1px #cfcfcf solid;
+}
+.itemSelected{
+    color: var(--themeColor);
+    background-color: #FFFFFF;
+    position: relative;
+}
+.itemSelected::before{
+    content: ' ';
+    height: 60rpx;
+    width: 8rpx;
+    background-color: var(--themeColor);
+    position: absolute;
+    left: 10rpx;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+/* 设置右方item */
+.cateContent{
+    margin-top: 40rpx;
+}
+.catTitle{
+    font-size: 34rpx;
+}
+.catTitle,.catName{
+    text-align: center;
+}
+.goodList{
+    display: flex;
+    flex-wrap: wrap;
+}
+.goodItem{
+    width: 33.33%;
+    /* padding-left: 5%; */
+    margin-top: 20rpx;
+    text-align: center;
+}
+.goodItem image{
+    width: 60%;
+}

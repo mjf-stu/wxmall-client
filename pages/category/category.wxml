@@ -3,7 +3,38 @@
 
 <view class="cateContainer">
 <!-- 左侧菜单 -->
-    <view></view>
+    <view class="leftCate">
+        <scroll-view class="leftCateScroll" scroll-y="{{true}}">
+            <view 
+            class="leftCateItem {{current === index ? 'itemSelected':'' }}" 
+            wx:for="{{leftMenuList}}"
+            wx:key="*this"
+            bind:tap="itemSelected"
+            data-i="{{index}}">
+                {{item}}
+            </view>
+        </scroll-view>
+    </view>
 <!-- 右侧商品内容 -->
-    <view></view>
+    <view class="rightCate">
+        <scroll-view scroll-top="{{scrollTop}}" class="rightCateScroll" scroll-y="{{true}}">
+           <view 
+           class="cateContent"
+           wx:for="{{rightContent[current]}}"
+           wx:key="cat_id"
+           wx:for-item="i1">
+               <view class="catName catTitle">/ {{i1.cat_name}} /</view>
+               <view class="goodList">
+                   <navigator
+                   class="goodItem"
+                   wx:for="{{i1.children}}"
+                   wx:for-item="i2"
+                   wx:key="cat_id">
+                       <image src="{{i2.cat_icon}}" mode="widthFix" lazy-load="false"/>
+                       <view class="catName">{{i2.cat_name}}</view>
+                   </navigator> 
+               </view>
+            </view>
+        </scroll-view>
+    </view>
 </view>
