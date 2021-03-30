@@ -1,0 +1,19 @@
+/* components/TabControl.wxss */
+.tabControl {
+  height: calc( 100vh - 100rpx );
+}
+.tabs {
+  height: 64rpx;
+  display: flex;
+  line-height: 64rpx;
+  text-align: center;
+}
+.tabItem {
+  flex: 1;
+  border-bottom: 1px #cfcfcf solid;
+}
+.itemSelected {
+  color: var(--themeColor);
+  border-bottom: 1px var(--themeColor) solid;
+}
+  

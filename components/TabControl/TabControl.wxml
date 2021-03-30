@@ -1,0 +1,15 @@
+<view class="tabControl">
+    <view class="tabs">
+        <view class="tabItem {{item.isActive ? 'itemSelected':''}}" 
+        wx:for="{{tabs}}" wx:key="*this"
+        bind:tap="itemSelected"
+        data-i="{{index}}">
+            {{item.name}}
+        </view>
+    </view>
+    <view class="contents">
+        <block>
+            <slot name="contentItem"></slot>
+        </block>
+    </view>
+</view>

@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "商品分类"
+  "usingComponents": {
+    "SearchInput": "/components/SearchInput/SearchInput",
+    "TabControl": "/components/TabControl/TabControl"
+  },
+  "navigationBarTitleText": "商品分类",
+  "onReachBottomDistance": 0
 }

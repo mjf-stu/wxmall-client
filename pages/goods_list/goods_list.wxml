@@ -1,2 +1,22 @@
 <!--pages/goods_list/goods_list.wxml-->
-<text>pages/goods_list/goods_list.wxml</text>
+<SearchInput/>
+
+<!--tabcontrol-->
+<TabControl tabs="{{tabs}}" bind:changeTabs="changeTabs">
+    <view slot="contentItem">
+        <view class="goodsList" wx:if="{{tabs[0].isActive}}">
+            <navigator class="goodsItem" wx:for="{{goods}}" wx:key="goods_id">
+                <view class="goodsImg"><image src="{{item.goods_small_logo}}" mode="widthFix"/></view>
+                <view class="goodsDesc">
+                    <view class="goodsName">{{item.goods_name}}</view>
+                    <view class="goodsPrice">￥{{item.goods_price}}</view>
+                </view>
+            </navigator>
+        </view>
+        <view wx:if="{{tabs[1].isActive}}">2</view>
+        <view wx:if="{{tabs[2].isActive}}">3</view>
+    </view>
+</TabControl>
+
+<!-- 提示框 -->
+<view class="tips {{tipsShow === 0 ? 'tipsHidden' : 'tipsShow'}}">已经没有更多数据了！！</view>
