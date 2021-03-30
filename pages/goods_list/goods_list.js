@@ -1,4 +1,6 @@
 // pages/goods_list/goods_list.js
+import {req} from "../../request/indexReq.js"
+
 Page({
 
   /**
@@ -12,7 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    req({
+      url: "/goods/search",
+      method: "GET",
+      data: {
+        cid: options.catid,
+        pagenum: 1
+      }
+    }).then((result)=>{
+      console.log(result)
+    })
   },
 
   /**

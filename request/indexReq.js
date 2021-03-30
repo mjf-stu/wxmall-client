@@ -1,4 +1,6 @@
 function req(options){
+    const baseUrl = 'https://api-hmugo-web.itheima.net/api/public/v1'
+    options.url = baseUrl + options.url
     return new Promise((resolve,reject)=>{
         wx.request({
             ...options,
@@ -9,7 +11,7 @@ function req(options){
             // dataType: 'json',
             // responseType: 'text',
             success: (result) => {
-                resolve(result)
+                resolve(result.data.message)
             },
             fail: () => {
                 reject("swiperImgs请求终止")

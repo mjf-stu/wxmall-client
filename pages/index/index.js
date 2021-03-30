@@ -24,34 +24,34 @@ Page({
     // 请求后台数据
     getSwiperList(){
         req({
-            url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+            url: '/home/swiperdata',
             method: "GET"
         }).then((result)=>{
             console.log(result)
             this.setData({
-                swiperImgs: result.data.message
+                swiperImgs: result
             })
         }).catch(err=>{console.log(err)})
     },
     getNavList(){
         req({
-            url: "https://api-hmugo-web.itheima.net/api/public/v1/home/catitems",
+            url: "/home/catitems",
             method: "GET"
         }).then(result=>{
             console.log(result)
             this.setData({
-                navImgs: result.data.message
+                navImgs: result
             })
         })
     },
     getFloorData(){
         req({
-            url: "https://api-hmugo-web.itheima.net/api/public/v1/home/floordata",
+            url: "/home/floordata",
             method: "GET"
         }).then(result=>{
             console.log(result)
             this.setData({
-                floorList: result.data.message
+                floorList: result
             })
             let titles = []
             let lists = []

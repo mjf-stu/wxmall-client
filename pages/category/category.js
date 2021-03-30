@@ -36,13 +36,9 @@ Page({
   /**
    * 获取当前页面数据的方法
    */
-  getCategoryData(){
-    req({
-      url: "https://api-hmugo-web.itheima.net/api/public/v1/categories",
-      method: "GET"
-    }).then((result)=>{
-      console.log(result)
-      this.Cates = result.data.message
+  async getCategoryData(){
+      const result = await req({url: "/categories",method: "GET"})
+      this.Cates = result
       this.setData({
         leftMenuList: this.Cates.map(i=>i.cat_name),
         rightContent: this.Cates.map(i=>i.children)
@@ -51,16 +47,30 @@ Page({
       wx.setStorageSync('Cates', {time: Date.now(),data: this.Cates});
       console.log(this.data.leftMenuList)
       console.log(this.data.rightContent)
-    })
+    // req({
+    //   url: "/categories",
+    //   method: "GET"
+    // }).then((result)=>{
+    //   console.log(result)
+    //   this.Cates = result.data.message
+    //   this.setData({
+    //     leftMenuList: this.Cates.map(i=>i.cat_name),
+    //     rightContent: this.Cates.map(i=>i.children)
+    //   })
+    //   // 缓存数据
+    //   wx.setStorageSync('Cates', {time: Date.now(),data: this.Cates});
+    //   console.log(this.data.leftMenuList)
+    //   console.log(this.data.rightContent)
+    // })
   },
  
   /**
    * 事件相关方法
    */
+  // 切换分类
   itemSelected(e){
     let i = e.currentTarget.dataset.i
     if(i!==this.data.current){
-      console.log(this.data.scrollTop)
       this.setData({
         current: i,
         scrollTop: 0

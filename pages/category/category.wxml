@@ -29,7 +29,8 @@
                    class="goodItem"
                    wx:for="{{i1.children}}"
                    wx:for-item="i2"
-                   wx:key="cat_id">
+                   wx:key="cat_id"
+                   url="/pages/goods_list/goods_list?catid={{i2.cat_id}}">
                        <image src="{{i2.cat_icon}}" mode="widthFix" lazy-load="false"/>
                        <view class="catName">{{i2.cat_name}}</view>
                    </navigator> 
