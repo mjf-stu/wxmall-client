@@ -19,4 +19,4 @@
 </TabControl>
 
 <!-- 提示框 -->
-<view class="tips {{tipsShow === 0 ? 'tipsHidden' : 'tipsShow'}}">已经没有更多数据了！！</view>
+<!-- <view class="tips {{tipsShow === 0 ? 'tipsHidden' : 'tipsShow'}}">已经没有更多数据了！！</view> -->

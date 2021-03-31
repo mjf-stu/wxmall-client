@@ -4,5 +4,6 @@
     "TabControl": "/components/TabControl/TabControl"
   },
   "navigationBarTitleText": "商品分类",
-  "onReachBottomDistance": 0
+  "onReachBottomDistance": 0,
+  "enablePullDownRefresh": true
 }

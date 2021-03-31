@@ -45,7 +45,7 @@
     color: #FFFFFF;
     background-color: #000000d8;
     border-radius: 20rpx;
-    transition: opacity 800ms;
+    transition: opacity 500ms;
 }
 .tipsShow{
     opacity: 1;

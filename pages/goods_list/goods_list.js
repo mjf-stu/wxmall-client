@@ -20,7 +20,7 @@ Page({
       }
     ],
     goods: [],
-    tipsShow: 0
+    // tipsShow: 0
   },
   // 列表查询需要的参数
   queryParams:{
@@ -36,11 +36,11 @@ Page({
     this.queryParams.cid = options.catid
     this.getGoods(this.queryParams)
     // tips的显示隐藏防抖函数赋值
-    this.tipsDebounce = this.debounce(()=>{
-      this.setData({
-        tipsShow: 0
-      })
-    },3000)
+    // this.tipsDebounce = this.debounce(()=>{
+    //   this.setData({
+    //     tipsShow: 0
+    //   })
+    // },2000)
   },
 
   /**
@@ -89,26 +89,49 @@ Page({
     result.then(result=>{
       if(result===0){
         this.queryParams.pagenum--
-        
-        this.setData({
-          tipsShow: 1
-        })
-        this.tipsDebounce()
+        wx.showToast({
+          title: '没有更多内容',
+          icon: 'none',
+          image: '',
+          duration: 1500,
+          mask: false,
+          success: (result) => {
+            
+          },
+          fail: () => {},
+          complete: () => {}
+        });
+          
+        // this.setData({
+        //   tipsShow: 1
+        // })
+        // this.tipsDebounce()
       }
     })
   },
-  tipsDebounce(){
+  // tipsDebounce(){
 
-  },
-  debounce(fn,dely){
-    let timer = null 
-    return function(){
-      if(timer !== null){
-        clearTimeout(timer)
-      }
-      timer = setTimeout(() => {
-        fn()
-      }, dely);
-    }
+  // },
+  // debounce(fn,dely){
+  //   let timer = null 
+  //   return function(){
+  //     if(timer !== null){
+  //       clearTimeout(timer)
+  //     }
+  //     timer = setTimeout(() => {
+  //       fn()
+  //     }, dely);
+  //   }
+  // }
+
+  // 下拉刷新事件
+  onPullDownRefresh(){
+    this.queryParams.pagenum = 1
+    this.setData({
+      goods: []
+    })
+    this.getGoods(this.queryParams).then(result=>{
+      wx.stopPullDownRefresh()
+    })
   }
 })
