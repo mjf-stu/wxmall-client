@@ -5,7 +5,8 @@
 <TabControl tabs="{{tabs}}" bind:changeTabs="changeTabs">
     <view slot="contentItem">
         <view class="goodsList" wx:if="{{tabs[0].isActive}}">
-            <navigator class="goodsItem" wx:for="{{goods}}" wx:key="goods_id">
+            <navigator class="goodsItem" wx:for="{{goods}}" wx:key="goods_id"
+                url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
                 <view class="goodsImg"><image src="{{item.goods_small_logo}}" mode="widthFix"/></view>
                 <view class="goodsDesc">
                     <view class="goodsName">{{item.goods_name}}</view>

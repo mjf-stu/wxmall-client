@@ -1,2 +1,28 @@
 <!--pages/goods_detail/goods_detail.wxml-->
-<text>pages/goods_detail/goods_detail.wxml</text>
+<view class="">
+    <swiper class="swiperContainer"
+        indicator-dots="{{true}}"
+        autoplay="{{true}}">
+        <swiper-item class="swiperItem"
+          wx:for="{{goodsData.pics}}" wx:key="pics_id">
+            <image src="{{item.pics_sma_url}}" mode="widthFix"/>
+        </swiper-item>
+    </swiper>
+</view>
+
+<view>
+    <text class="goodsPrice">￥{{goodsData.goods_price}}</text>
+</view>
+
+<view class="goodsInfo">
+    <view class="goodsMsg">{{goodsData.goods_name}}</view>
+    <view class="goodsCollect">
+        <view class="iconfont iconshoucang1"></view>
+        <view>收藏</view>
+    </view>
+</view>
+
+<view class="goodsDetailInfo">
+    <view class="goodsInfoTitle">图文详情</view>
+    <view class="goodsInfoContent"><rich-text nodes="{{goodsData.goods_introduce}}"></rich-text></view>
+</view>
