@@ -1,11 +1,16 @@
-<!--pages/goods_detail/goods_detail.wxml-->
+<!-- pages/goods_detail/goods_detail.wxml -->
+<view class="bigPicsContainer" hidden="{{bigPicsShow === 0}}" bind:tap="closeBigImg">
+    <swiper class="bigPics" indicator-dots="{{true}}" autoplay="{{true}}" current="{{initImgIndex}}">
+        <swiper-item class="bigPicsItem" wx:for="{{goodsData.pics}}" wx:key="pics_id">
+            <image src="{{item.pics_sma_url}}" mode="widthFix" />
+        </swiper-item>
+    </swiper>
+</view>
+
 <view class="">
-    <swiper class="swiperContainer"
-        indicator-dots="{{true}}"
-        autoplay="{{true}}">
-        <swiper-item class="swiperItem"
-          wx:for="{{goodsData.pics}}" wx:key="pics_id">
-            <image src="{{item.pics_sma_url}}" mode="widthFix"/>
+    <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}">
+        <swiper-item class="swiperItem" wx:for="{{goodsData.pics}}" wx:key="pics_id">
+            <image src="{{item.pics_sma_url}}" mode="widthFix" bind:tap="showBigImage" data-index="{{index}}"/>
         </swiper-item>
     </swiper>
 </view>
@@ -24,5 +29,7 @@
 
 <view class="goodsDetailInfo">
     <view class="goodsInfoTitle">图文详情</view>
-    <view class="goodsInfoContent"><rich-text nodes="{{goodsData.goods_introduce}}"></rich-text></view>
+    <view class="goodsInfoContent">
+        <rich-text nodes="{{goodsData.goods_introduce}}"></rich-text>
+    </view>
 </view>
