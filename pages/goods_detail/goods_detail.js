@@ -33,10 +33,21 @@ Page({
   },
 
   showBigImage(e){
-    this.setData({
-      initImgIndex: e.currentTarget.dataset.index,
-      bigPicsShow: 1
-    })
+    let pics = this.data.goodsData.pics.map(e=>e.pics_sma_url)
+    wx.previewImage({
+      current: pics[ e.currentTarget.dataset.index],
+      urls: [...pics],
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+      
+    // this.setData({
+    //   initImgIndex: e.currentTarget.dataset.index,
+    //   bigPicsShow: 1
+    // })
   },
 
   closeBigImg(e){

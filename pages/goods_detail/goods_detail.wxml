@@ -1,12 +1,4 @@
 <!-- pages/goods_detail/goods_detail.wxml -->
-<view class="bigPicsContainer" hidden="{{bigPicsShow === 0}}" bind:tap="closeBigImg">
-    <swiper class="bigPics" indicator-dots="{{true}}" autoplay="{{true}}" current="{{initImgIndex}}">
-        <swiper-item class="bigPicsItem" wx:for="{{goodsData.pics}}" wx:key="pics_id">
-            <image src="{{item.pics_sma_url}}" mode="widthFix" />
-        </swiper-item>
-    </swiper>
-</view>
-
 <view class="">
     <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}">
         <swiper-item class="swiperItem" wx:for="{{goodsData.pics}}" wx:key="pics_id">
@@ -32,4 +24,23 @@
     <view class="goodsInfoContent">
         <rich-text nodes="{{goodsData.goods_introduce}}"></rich-text>
     </view>
+</view>
+
+<view class="bottomBar">
+    <view class="kefu">
+        <view class="iconfont iconkefu"></view>
+        <text>联系客服</text>
+        <button open-type="contact" id="kefubtn"></button>
+    </view>
+    <view class="share">
+        <view class="iconfont iconyixianshi-"></view>
+        <text>分享</text>
+        <button open-type="share" id="sharebtn"></button>
+    </view>
+    <navigator url="/pages/cart/cart" open-type="switchTab" class="cart">
+        <view class="iconfont icongou_wu_che2"></view>
+        <text >购物车</text>
+    </navigator>
+    <view class="addCart">加入购物车</view>
+    <view class="buy">立即购买</view>
 </view>

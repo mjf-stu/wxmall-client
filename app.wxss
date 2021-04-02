@@ -1,7 +1,7 @@
 @import "./styles/iconfont.wxss";
 
 /* 设置默认样式 */
-page,view,text,swiper,swiper-item,image,navigator{
+page,view,text,swiper,swiper-item,image,navigator,button{
     padding: 0;
     margin: 0;
 }
